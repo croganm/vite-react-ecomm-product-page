@@ -1,0 +1,31 @@
+.Header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+
+	.Menu {
+		svg {
+			@apply h-full w-auto;
+		}
+	}
+
+	.logo {
+		cursor: pointer;
+		flex: 1;
+		
+		@media (screen(lg)) {
+			flex: none;
+		}
+		
+		img {
+			top: -1px;
+			transition: scale 250ms;
+		}
+
+		img:hover,
+		img:focus {
+			scale: 1.05;
+		}
+	}
+}

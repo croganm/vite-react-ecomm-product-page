@@ -1,0 +1,87 @@
+.ShoppingInfo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+
+	@media (screen(md)) {
+		gap: 4rem;
+	}
+
+	button {
+		width: auto;
+		transition: scale 250ms;
+
+		&:active,
+		&:focus,
+		&.active {
+			outline: none;
+		}
+	}
+
+	.Avatar {
+		border-radius: 50%;
+		img {
+			height: 1.75rem;
+		}
+		
+		@media (screen(md)) {
+			img {
+				height: 3rem;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			scale: 1.1;
+		}
+
+		&:active,
+		&:focus,
+		&.active {
+			box-shadow: 0 0 0 2px theme("colors.orange.500");
+		}
+	}
+
+	.Cart {
+		height: 1.5rem;
+		display: block;
+
+		&:hover,
+		&:focus {
+			scale: 1.15;
+		}
+		&:active,
+		&:focus,
+		&.active {
+			svg {
+				path {
+					fill: black;
+				}
+			}
+		}
+	}
+
+	.dropdown {
+		top: 180%;
+		max-width: 88vw;
+
+		@media (screen(md)) {
+			top: 100%;
+		}
+
+		h4 {
+			border-bottom: 1px solid #ccc;
+		}
+
+		> * {
+			@apply px-8;
+		}
+
+		.Checkout {
+			button {
+				@apply w-full mt-4;
+			}
+		}
+	}
+}

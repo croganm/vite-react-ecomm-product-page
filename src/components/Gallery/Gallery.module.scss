@@ -1,0 +1,51 @@
+@use "sass:selector";
+
+@mixin unify-parent($child) {
+	@at-root #{selector.unify(&, $child)} {
+		@content;
+	}
+}
+
+.Gallery {
+	display: flex;
+	flex-direction: column;
+
+	.FeaturedImage {
+		position: relative;
+		height: 100%;
+
+		@include unify-parent("img") {
+			border-radius: 3%;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			max-width: 500px;
+			margin: auto;
+			object-fit: cover;
+			object-position: 50% 0%;
+			
+			@media (screen(lg)) {
+				border-radius: 3%;
+				max-width: inherit;
+			}
+		}
+	}
+
+	& > div {
+		width: 100%;
+	}
+
+	.Arrow {
+		position: absolute;
+		top: 50%;
+		background-color: white;
+		padding: 0.75rem;
+		border-radius: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@apply stroke-orange-500;
+	}
+}

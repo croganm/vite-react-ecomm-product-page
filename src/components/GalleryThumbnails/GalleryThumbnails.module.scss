@@ -1,0 +1,40 @@
+.GalleryThumbnails {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+
+	button {
+		border-radius: 10%;
+		position: relative;
+        cursor: pointer;
+        overflow: clip;
+		transition: scale 150ms;
+
+		&:hover,
+		&:focus {
+			box-shadow: 0 0 0 3px orange;
+			outline: 0;
+			scale: 1.05;
+		}
+
+		&.selectedImage {
+			box-shadow: 0 0 0 3px orange;
+
+			&::after {
+				content: "";
+				position: absolute;
+				display: block;
+				inset: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 1;
+				background: rgba(255, 255, 255, 0.5);
+			}
+		}
+
+		img {
+			width: 100%;
+			min-width: 0;
+		}
+	}
+}
