@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { formatter } from "@/hooks/utils";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+const gallery = import.meta.glob('images/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' })
+
 
 const ShoppingInfo = ({ cart, setCart, prevCart }) => {
 	const [isDropdown, setDropdown] = useState(false);
@@ -53,7 +55,7 @@ const ShoppingInfo = ({ cart, setCart, prevCart }) => {
 									key={idx}
 								>
 									<img
-										src={cart[item].image}
+										src={gallery[cart[item].image]}
 										alt={item}
 										className="w-auto h-full max-h-16 rounded-lg"
 									/>
@@ -73,7 +75,7 @@ const ShoppingInfo = ({ cart, setCart, prevCart }) => {
 										</p>
 									</div>
 									<button
-										className=""
+										className="fill-neutral-400 hover:fill-red-500 focus:fill-red-500"
 										onClick={(e) => {
 											e.preventDefault();
 											e.stopPropagation();

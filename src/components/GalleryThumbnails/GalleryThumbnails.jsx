@@ -1,8 +1,8 @@
 import { Range } from "@/hooks/utils";
 import styles from "./GalleryThumbnails.module.scss";
+const gallery = import.meta.glob('images/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' })
 
 const GalleryThumbnails = ({ imageId, setImageId, count }) => {
-
 	return (
 		<div
 			className={styles.GalleryThumbnails}
@@ -16,7 +16,7 @@ const GalleryThumbnails = ({ imageId, setImageId, count }) => {
 					tabIndex={0}
 				>
 					<img
-						src={`/src/assets/images/image-product-${n}-thumbnail.jpg`}
+						src={gallery[`/src/assets/images/image-product-${n}-thumbnail.jpg`]}
 					/>
 				</button>
 			))}

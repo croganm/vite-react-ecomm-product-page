@@ -3,6 +3,7 @@ import GalleryThumbnails from "../GalleryThumbnails/GalleryThumbnails";
 import styles from "./Gallery.module.scss";
 import { ReactComponent as NextArrow } from "images/icon-next.svg";
 import { ReactComponent as PreviousArrow } from "images/icon-previous.svg";
+const gallery = import.meta.glob('images/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' })
 
 const FeaturedImageWithArrows = ({ MAX_IMAGES, imageId, setImageId }) => {
 	return (
@@ -15,7 +16,7 @@ const FeaturedImageWithArrows = ({ MAX_IMAGES, imageId, setImageId }) => {
 			>
 				<PreviousArrow />
 			</button>
-			<img src={`/src/assets/images/image-product-${imageId}.jpg`} />
+			<img src={gallery[`/src/assets/images/image-product-${imageId}.jpg`]} />
 			<button
 				className={`${styles.Arrow} right-4 lg:-right-6`}
 				onClick={() =>
@@ -33,7 +34,7 @@ const FeaturedImage = ({ imageId, setLightbox }) => {
 		<button onClick={() => setLightbox(true)}>
 			<img
 				className={styles.FeaturedImage}
-				src={`/src/assets/images/image-product-${imageId}.jpg`}
+				src={gallery[`/src/assets/images/image-product-${imageId}.jpg`]}
 			/>
 		</button>
 	);
@@ -44,7 +45,7 @@ const Gallery = ({
 	useArrows = false,
 	useThumbnails = false,
 	setLightbox = () => void undefined,
-	className=""
+	className = "",
 }) => {
 	const MAX_IMAGES = 4;
 	const [imageId, setImageId] = useImageCounter(MAX_IMAGES);

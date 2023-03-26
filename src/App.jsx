@@ -23,7 +23,7 @@ function App() {
 
 	const MainApp = () => (
 		<div className="App lg:container mx-auto xl:px-48 lg:pb-12">
-			<Header cart={cart} setCart={setCart} prevCart={prevCart}/>
+			<Header cart={cart} setCart={setCart} prevCart={prevCart} />
 
 			<div className="content lg:mt-16 lg:px-16 lg:flex gap-20">
 				<div className="hidden lg:block basis-1/2">

@@ -4,9 +4,13 @@
 		"paths": {
 			"@/*": ["./src/*", "./dist/*", ""],
 			"components/*": ["src/components/*"],
-			"images/*": ["src/assets/images/*"],
+			"images/*": ["src/assets/images/*"]
 		},
 		"checkJs": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"types": ["vite/client"], // 👈 add this
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node"
 	}
 }

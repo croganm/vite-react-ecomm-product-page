@@ -20,7 +20,7 @@ const LightBox = ({ setLightbox }) => {
 				>
 					<Close />
 				</button>
-				<Gallery useArrows />
+				<Gallery useArrows useThumbnails/>
 			</div>
 		</div>
 	);
